@@ -4,6 +4,7 @@ import FacebookProvider from "next-auth/providers/facebook"
 import GithubProvider from "next-auth/providers/github"
 import TwitterProvider from "next-auth/providers/twitter"
 import Auth0Provider from "next-auth/providers/auth0"
+import KeycloakProvider from "next-auth/providers/keycloak"
 // import AppleProvider from "next-auth/providers/apple"
 // import EmailProvider from "next-auth/providers/email"
 
@@ -49,6 +50,11 @@ export const authOptions: NextAuthOptions = {
       clientId: process.env.AUTH0_ID,
       clientSecret: process.env.AUTH0_SECRET,
       issuer: process.env.AUTH0_ISSUER,
+    }),
+    KeycloakProvider({
+      clientId: "portal",
+      clientSecret: "Ye5hCXHMxCRENTPVZ6Bs2Rt8GKAzre7F",
+      issuer: "https://sso.mly0110.org.cn:8443/auth/realms/GEN10/",
     }),
   ],
   theme: {
